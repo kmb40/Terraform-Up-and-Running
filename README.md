@@ -9,6 +9,6 @@ Terraform Continuing Education with Projects
 * MacBook Ventura
 
 ### Installation
-* Followed installation instructions for "Linux" at https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli.
-* Enabled Tab Completion for Terraform.
+* Followed installation instructions for "Mac" at https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli.
+* Enabled Tab Completion for Terraform using `touch ~/.bashrc`.
 * Installed the autocomplete package using `terraform -install-autocomplete`.
