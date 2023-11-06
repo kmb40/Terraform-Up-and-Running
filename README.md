@@ -1,14 +1,14 @@
 # terraform
 Terraform Continuing Education with Projects
 
-**Objective:** TerraFrom Research and Development.
+**Objective:** Terraform Research and Development.
 
 ### Tools used
-* VSCode Web version
+* VSCode 
 * Gitpod
 * MacBook Ventura
 
 ### Installation
 * Followed installation instructions for "Linux" at https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli.
 * Enabled Tab Completion for Terraform.
-* Installed the autocomplete package.
+* Installed the autocomplete package using `terraform -install-autocomplete`.
