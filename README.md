@@ -1,11 +1,12 @@
 # terraform
-Terraform Education
+Terraform Continuing Education with Projects
 
-**Objective:** To learn how to use Terraform.
+**Objective:** TerraFrom Research and Development.
 
 ### Tools used
 * VSCode Web version
 * Gitpod
+* MacBook Ventura
 
 ### Installation
 * Followed installation instructions for "Linux" at https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli.
