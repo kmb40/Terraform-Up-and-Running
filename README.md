@@ -30,4 +30,4 @@ Destroyed original instance and deployed new code with the instance and the secu
 **Issue** 
 `Deploy one web server` when using `terraform output` failed to produce results AFTER `output` syntax has been added.
 **Resolution** 
-`terraform refresh` made it avaialble and returned the desired result. 
+`terraform refresh` made displayed the result. Also, running `terraform apply` no plan produces the desired outcome. 
