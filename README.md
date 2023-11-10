@@ -23,3 +23,8 @@ Terraform Continuing Education with Projects
 `Deploy one web server` lab failed to allow traffic after the instance was created first and the security group second.
 **Resolution** 
 Destroyed original instance and deployed new code with the instance and the security group together. 
+
+**Issue** 
+`Deploy one web server` when using `terraform output` failed to produce results AFTER `output` syntax has been added.
+**Resolution** 
+`terraform refresh` made it avaialble and returned the desired result. 
