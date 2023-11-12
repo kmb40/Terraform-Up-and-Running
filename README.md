@@ -14,10 +14,11 @@ Terraform Continuing Education with Projects
 * Installed the autocomplete package using `terraform -install-autocomplete`.
 
 ### Chapter 1
+Nothing to add.
 
 ### Chapter 2
-#### Obeservations 
-- `terraform{}`, `required_version`, `required_providers` entries are not mentioned in the book but are provided in the GitHub examples code. These are not required according to testing. Need to determine purpose.
+#### Observations 
+- `terraform{}`, `required_version`, and `required_providers` entries are not mentioned in the book but are provided in the GitHub examples code. These are not required according to testing. Need to determine purpose.
     - The `version` attribute in `required_providers` is optional but useful when the desired outcome is to prevent untested versions of tf from being used. 
     - `required_version` is optional but useful when the desired outcome is to prevent untested versions of tf from being used. 
     - Research - https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build#terraform-block
@@ -26,6 +27,7 @@ Terraform Continuing Education with Projects
 `Deploy one web server` lab failed to allow traffic after the instance was created first and the security group second.
 **Resolution** 
 Destroyed original instance and deployed new code with the instance and the security group together. 
+**Note:** Be sure not to use `https` and to include the port at the end of the url e.g. `http://ec2-54-221-56-68.compute-1.amazonaws.com:8080`
 
 **Issue** 
 `Deploy one web server` when using `terraform output` failed to produce results AFTER `output` syntax has been added.
