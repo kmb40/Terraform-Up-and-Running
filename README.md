@@ -50,3 +50,8 @@ Error: waiting for Auto Scaling Group (terraform-20231111102145165600000002) cap
 
 **Resolution** 
 Reran `terraform plan` and received `# aws_autoscaling_group.example is tainted, so must be replaced` which resolved the issue.
+
+### Chapter 3
+#### Observations 
+- When reading the PDF, there are often times when the chapter is needed but not known which requires scrolling to find the chapter.
+**Solution** Place chapter in footer of book.
