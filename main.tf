@@ -1,4 +1,4 @@
-# This file reflects the section of Chapter 3 - KB
+# This file reflects the "The terraform_remote_state Data Source" section of Chapter 3 - KB
 
 terraform {
   required_version = ">= 1.0.0, < 2.0.0"
