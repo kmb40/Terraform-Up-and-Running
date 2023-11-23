@@ -61,29 +61,29 @@ On `Terraform init,` recieved the following error when setting up module
 > Error: Backend configuration changed
 >
 > A change in the backend configuration has been detected, which may require migrating existing state.
-
+>
 > If you wish to attempt automatic migration of the state, use “terraform init -migrate-state”.
 > If you wish to store the current configuration with no changes to the state, use “terraform init -reconfigure”.
 
 **Solution**
 Attempted to use `terraform init -reconfigure`
->│ Error: Backend initialization required, please run "terraform init"
->│ 
->│ Reason: Unsetting the previously set backend "s3"
->│ 
->│ The "backend" is the interface that Terraform uses to store state,
->│ perform operations, etc. If this message is showing up, it means that the
->│ Terraform configuration you're using is using a custom configuration for
->│ the Terraform backend.
->│ 
->│ Changes to backend configurations require reinitialization. This allows
->│ Terraform to set up the new configuration, copy existing state, etc. Please run
->│ "terraform init" with either the "-reconfigure" or "-migrate-state" flags to
->│ use the current configuration.
->│ 
->│ If the change reason above is incorrect, please verify your configuration
->│ hasn't changed and try again. At this point, no changes to your existing
->│ configuration or state have been made.
+> Error: Backend initialization required, please run "terraform init"
+> 
+> Reason: Unsetting the previously set backend "s3"
+> 
+> The "backend" is the interface that Terraform uses to store state,
+> perform operations, etc. If this message is showing up, it means that the
+> Terraform configuration you're using is using a custom configuration for
+> the Terraform backend.
+> 
+> Changes to backend configurations require reinitialization. This allows
+> Terraform to set up the new configuration, copy existing state, etc. Please run
+> "terraform init" with either the "-reconfigure" or "-migrate-state" flags to
+> use the current configuration.
+> 
+> If the change reason above is incorrect, please verify your configuration
+> hasn't changed and try again. At this point, no changes to your existing
+> configuration or state have been made.
 
 Used `terraform init -migrate-state` instead.
 https://discuss.hashicorp.com/t/confusing-error-message-when-terraform-backend-is-changed/32637
