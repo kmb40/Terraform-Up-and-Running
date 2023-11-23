@@ -21,10 +21,11 @@ terraform {
     }  
 }
 
+/* Removing per instructions when creating module.
 provider "aws" {
   region = "us-east-1" // Book example is us-east-2
 }
-
+*/
 
 //Start of bucket
 
