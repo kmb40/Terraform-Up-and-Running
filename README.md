@@ -87,3 +87,24 @@ Attempted to use `terraform init -reconfigure`
 
 Used `terraform init -migrate-state` instead.
 https://discuss.hashicorp.com/t/confusing-error-message-when-terraform-backend-is-changed/32637
+
+### Chapter 4
+#### Observations 
+**State Files** There were multiple tasks related to state files worth noting. 
+- Rules for Both (Local and Remote State files)
+1. The state file contains the current state of the infrastructure.   
+2. The configuration file (main.tf) contains the desired state of the infrastructure.   
+3. When ever there is a delta (mismatch information) between the two files, terraform will attempt to resolve the mismatch by destroying or creating infrastructure.     
+E.g. If there are two S3 buckets listed in the state file and the config file is updated to show only one bucket, the bucket that is NOT listed will be destroyed upon the use of the tf apply command. This is desired functionality.    
+
+- Rules for Remote (Cloud, S3, etc)    
+1. When using a remote hosted state file, there is no local state file needed. It would be a good practice to create the remote location before updating the configuration file to use it.     
+2. In the event that Terraform Cloud is being used, this is not required as the remote location can be created automatically once the configuration file is updated to use a remote backend.   
+#https://developer.hashicorp.com/terraform/tutorials/state/cloud-migrate#configure-terraform-cloud-integration   
+
+**Resources**
+Article on manipulating (importing, removing, updating) state files -
+https://dev.to/aws-builders/how-to-manage-and-manipulate-resources-in-terraform-state-file-2-2hle#:~:text=4.-,Move%20a%20resource%20to%20a%20different%20state%20file,not%20in%20your%20configuration%20file. 
+
+**Issue**
+If these observations are not considered, there may be resources that are destroyed by mistake. 
