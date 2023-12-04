@@ -100,7 +100,9 @@ E.g. If there are two S3 buckets listed in the state file and the config file is
 - Rules for Remote (Cloud, S3, etc)    
 1. When using a remote hosted state file, there is no local state file needed. It would be a good practice to create the remote location before updating the configuration file to use it.     
 2. In the event that Terraform Cloud is being used, this is not required as the remote location can be created automatically once the configuration file is updated to use a remote backend.   
-#https://developer.hashicorp.com/terraform/tutorials/state/cloud-migrate#configure-terraform-cloud-integration   
+#https://developer.hashicorp.com/terraform/tutorials/state/cloud-migrate#configure-terraform-cloud-integration  
+3. The large challenge here is that in the cse of s3. Once the bucket has been created, it must be referenced in the config file and state file OR completely removed for each. Since it is being used to house the state file, it would be a risk to have it destroyed. In the case of TF Cloud, this isnt an issue. 
+3a. Another alternative is to manually create the S3 bucket and avoid TF all together. Additionally, Terrgrunt is an application which addresses this issue - https://terragrunt.gruntwork.io/
 
 **Resources**
 Article on manipulating (importing, removing, updating) state files -
@@ -108,3 +110,9 @@ https://dev.to/aws-builders/how-to-manage-and-manipulate-resources-in-terraform-
 
 **Issue**
 If these observations are not considered, there may be resources that are destroyed by mistake. 
+
+**Solution**
+State file and Configuration files must match. 
+- When removing the resources from the state file, you presented with an error that they do not exist in the configuration file.
+- When removing the resources from the config file, you are basically asking TF to destroy those items.
+- Thus to avoid errors while keeping the remote state file in tact, the resources must be removed from both locations.

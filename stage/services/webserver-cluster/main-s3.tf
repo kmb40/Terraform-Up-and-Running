@@ -1,23 +1,4 @@
-terraform {
-  required_version = ">= 1.0.0, < 2.0.0"
-
-  required_providers {
-    aws = {
-        source = "hashicorp/aws"
-        version = "~> 5.0"
-    }
-  }
-  backend "local" {
-    
-  }
-} 
-
-provider "aws" {
-  region = "us-east-1" // Book example is us-east-2
-}
-
-//Start of bucket
-
+# Breaking out S3 only configuration
 # Create a S3 bucket for the state file
 resource "aws_s3_bucket" "terraform_state" {
   bucket = var.bucket_name
@@ -57,36 +38,3 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
    ignore_public_acls = true
    restrict_public_buckets = true
 }
-
-resource "aws_dynamodb_table" "terraform_locks" {
-  name = "terraform-up-and-running-locks"
-  billing_mode = "PAY_PER_REQUEST"
-  hash_key = "LockID"
-
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-}
-
-// End of bucket
-
-/*
-resource "aws_instance" "example" {
-  ami               = "ami-06aa3f7caf3a30282" // Using an us-east-1 similar ami  
-  instance_type     = "t2.micro"
-}
-
-terraform {
-backend "s3" {
-# Replace this with your bucket name!
-bucket = "terraform-up-and-running-state-kmb2"
-key = "workspaces-example/terraform.tfstate"
-region = "us-east-1"
-
-# Replace this with your DynamoDB table name!
-dynamodb_table = "terraform-up-and-running-locks"
-encrypt = true
- }
-}
-*/
