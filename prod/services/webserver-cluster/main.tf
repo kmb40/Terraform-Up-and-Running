@@ -1,3 +1,22 @@
+terraform {
+  required_version = ">= 1.0.0, < 2.0.0"
+
+  required_providers {
+    aws = {
+        source = "hashicorp/aws"
+        version = "~> 5.0"
+    }
+  }
+  
+  backend "s3" {
+   # Partial configuration. The other settings (e.g., bucket,region) will be
+   # passed in from a file via -backend-config arguments to 'terraform init'
+    key = "prod/services/webserver-cluster/terraform.tfstate"
+    encrypt = true
+    }  
+   
+}
+
 provider "aws" {
 region = "us-east-1"
 }

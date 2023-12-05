@@ -165,10 +165,7 @@ data "terraform_remote_state" "db" {
 
    config = {
    bucket = var.db_remote_state_bucket
-   #bucket = "terraform-up-and-running-state-kmb2"
    key = var.db_remote_state_key
-   #key = "global/s3/terraform.tfstate"
-   #key = "stage/data-stores/mysql/terraform.tfstate"
    region = "us-east-1"
   }
 }

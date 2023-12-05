@@ -9,14 +9,9 @@ terraform {
   }
   
   backend "s3" {
-    # Replace this with your bucket name!
-    bucket = "terraform-up-and-running-state-kmb2"
-    #key = "/s3/terraform.tfstate"
+   # Partial configuration. The other settings (e.g., bucket,region) will be
+   # passed in from a file via -backend-config arguments to 'terraform init'
     key = "stage/services/webserver-cluster/terraform.tfstate"
-    region = "us-east-1"
-
-    # Replace this with your DynamoDB table name!
-    dynamodb_table = "terraform-up-and-running-locks"
     encrypt = true
     }  
    
@@ -33,7 +28,6 @@ source = "../../../modules/services/webserver-cluster"
 
   cluster_name           = "webservers-stage"
   db_remote_state_bucket = "terraform-up-and-running-state-kmb2"
-  #db_remote_state_key    = "stage/data-stores/mysql/terraform.tfstate"
   db_remote_state_key    = "stage/services/webserver-cluster/terraform.tfstate"
 
   instance_type = "t2.micro"
