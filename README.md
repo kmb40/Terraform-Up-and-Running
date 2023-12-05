@@ -116,3 +116,6 @@ State file and Configuration files must match.
 - When removing the resources from the state file, you presented with an error that they do not exist in the configuration file.
 - When removing the resources from the config file, you are basically asking TF to destroy those items.
 - Thus to avoid errors while keeping the remote state file in tact, the resources must be removed from both locations.
+
+
+- Using `-lock=false` is effective when working around the preventitive dynamodb lock feature.
