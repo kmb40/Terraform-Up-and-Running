@@ -1,0 +1,1 @@
+The purpose of the 'rootdir' is to replicate a root directory.
